@@ -5,6 +5,8 @@ import { ContactComponent } from './contact/contact.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EmployeeInfoComponent } from './employee-info/employee-info.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
 
 export const routes: Routes = [
     {path:"", component: HomeComponent},
@@ -12,5 +14,7 @@ export const routes: Routes = [
     {path:"contact", component: ContactComponent},
     {path:"user", component: UserComponent},
     {path:"profile/:id", component: ProfileComponent},
+    {path:"emp-info", component: EmployeeInfoComponent},
+    {path:"add-emp", component: AddEmployeeComponent},
     {path:"**", component: PageNotFoundComponent},
 ];
