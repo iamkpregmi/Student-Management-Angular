@@ -20,5 +20,15 @@ export class EmployeeService {
     return this.http.post(url,emp);
   }
 
+  // delete single user from the database
+  deleteEmployee(id:any){
+    let url = "http://127.0.0.1:8000/delete_employee"
+    return this.http.delete(url+"/"+id+"/");
+  }
 
+  // get single user from the database
+  getSingleEmp(id:any){
+    let url = "http://127.0.0.1:8000/employee"
+    return this.http.get(url+"/"+id+"/");
+  }
 }

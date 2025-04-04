@@ -22,7 +22,7 @@
 
             <select class="form-select" aria-label="Default select example" id="Company_Name" name="Company_Name"
               ngModel>
-              <!-- <option selected disabled>Open this select menu</option> -->
+              <option selected disabled value="">Please Select Company</option>
               @for(comp of compInfo; track comp){
               <option value="{{comp.id}}">{{comp.company_name}}</option>
               }
