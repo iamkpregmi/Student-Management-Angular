@@ -23,9 +23,9 @@
                             <th scope="row">{{emp.id}}</th>
                             <td>{{emp.name}}</td>
                             <td>{{emp.department}}</td>
-                            <td>{{emp.salary}}</td>
-                            <!-- <td>{{emp.company_name}}</td> -->
-                            <td>#</td>
+                            <td>{{emp.salary | currency: "INR"}}</td>
+                            <td>{{emp.Company_Name}}</td>
+                            <!-- <td>#</td> -->
                             <td>
                                 <a href="" data-bs-toggle="modal" data-bs-target="#employeeModal"
                                     (click)="getSingleEmp(emp.id)">
@@ -53,26 +53,27 @@
                 </div>
                 <div class="modal-body">
                     <form autocomplete="off" #empFormNew="ngForm">
+                        <input type="hidden" name="empid" id="empid" [ngModel]="empInfoUpdate?.id">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control" id="name" name="name" [ngModel]="empInfoUpdate?.name">
                         </div>
                         <div class="mb-3">
                             <label for="department" class="form-label">Department</label>
-                            <input type="text" class="form-control" id="department" name="department" ngModel>
+                            <input type="text" class="form-control" id="department" name="department" [ngModel]="empInfoUpdate?.department">
                         </div>
                         <div class="mb-3">
                             <label for="salary" class="form-label">Salary</label>
-                            <input type="number" class="form-control" id="salary" name="salary" ngModel>
+                            <input type="number" class="form-control" id="salary" name="salary" [ngModel]="empInfoUpdate?.salary">
                         </div>
                         <div class="mb-3">
                             <label for="Company_Name" class="form-label">Company Name</label>
-                            <input type="text" class="form-control" id="Company_Name" name="Company_Name" ngModel>
+                            <input type="text" class="form-control" id="Company_Name" name="Company_Name" [ngModel]="empInfoUpdate?.Company_Name">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" (click)="updateInfo()">Update</button>
+                    <button type="button" class="btn btn-primary" (click)="updateInfo(empFormNew.value)">Update</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>

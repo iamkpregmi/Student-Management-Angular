@@ -20,11 +20,20 @@ export class AddEmployeeComponent {
     // console.log("Function work", val);
     this.emp.addEmployees(val).subscribe((data: any) => {
       // console.log('Data successfully insert',data);
-      Swal.fire({
-        title: "Submited Successfully!",
-        text: "Thank you!",
-        icon: "success"
-      });
+      if ((data?.Status === 200 || data?.statusCode === 200)){
+        Swal.fire({
+          title: "Submited Successfully!",
+          text: "Thank you!",
+          icon: "success"
+        });
+      } else {
+        Swal.fire({
+          title: "Submission Failed",
+          text: "Something went wrong.",
+          icon: "error"
+        });
+      }
+      
     })
   }
 

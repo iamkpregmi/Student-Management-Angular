@@ -31,4 +31,10 @@ export class EmployeeService {
     let url = "http://127.0.0.1:8000/employee"
     return this.http.get(url+"/"+id+"/");
   }
+
+
+  updateInfo(emp:any){
+    let url = "http://127.0.0.1:8000/edit_employee"
+    return this.http.put(url+"/"+emp.empid+"/",emp);
+  }
 }
